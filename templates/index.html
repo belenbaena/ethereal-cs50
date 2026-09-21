@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}ETHEREAL Universe{% endblock %}
+{% block main %}
+<section class="hero">
+    <p class="eyebrow">THE ETHEREAL UNIVERSE</p>
+    <h1>Knowledge, made ethereal.</h1>
+    <p class="hero-copy">Create your account and keep your favorite ETHEREAL worlds together in one beautiful place.</p>
+    <div class="hero-actions">
+        {% if current_user %}
+            <a class="button primary" href="{{ url_for('my_bubbles') }}">Enter My Bubbles</a>
+        {% else %}
+            <a class="button primary" href="{{ url_for('register') }}">Create account</a>
+            <a class="button ghost" href="{{ url_for('login') }}">Sign in</a>
+        {% endif %}
+    </div>
+</section>
+
+<section class="bubble-preview" aria-label="ETHEREAL worlds">
+    {% for bubble in bubbles %}
+        <div class="bubble bubble-{{ bubble.slug }}">
+            <span>{{ bubble.name.replace('Ethereal ', '') }}</span>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}
