@@ -7,8 +7,17 @@ from flask import Flask, flash, g, jsonify, redirect, render_template, request, 
 from werkzeug.security import check_password_hash, generate_password_hash
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATABASE = os.environ.get("DATABASE_PATH", os.path.join(BASE_DIR, "ethereal.db"))
-IS_PRODUCTION = os.environ.get("APP_ENV") == "production"
+VOLUME_ROOT = os.environ.get("RAILWAY_VOLUME_MOUNT_PATH")
+DEFAULT_DATABASE = (
+    os.path.join(VOLUME_ROOT, "ethereal.db")
+    if VOLUME_ROOT
+    else os.path.join(BASE_DIR, "ethereal.db")
+)
+DATABASE = os.environ.get("DATABASE_PATH", DEFAULT_DATABASE)
+IS_PRODUCTION = (
+    os.environ.get("APP_ENV") == "production"
+    or bool(os.environ.get("RAILWAY_ENVIRONMENT_NAME"))
+)
 
 app = Flask(__name__)
 
@@ -35,6 +44,7 @@ def get_db():
         g.db = sqlite3.connect(DATABASE, timeout=10)
         g.db.row_factory = sqlite3.Row
         g.db.execute("PRAGMA foreign_keys = ON")
+        g.db.execute("PRAGMA busy_timeout = 5000")
     return g.db
 
 
@@ -90,6 +100,12 @@ def inject_user():
 def index():
     bubbles = get_db().execute("SELECT * FROM bubbles ORDER BY id").fetchall()
     return render_template("index.html", bubbles=bubbles)
+
+
+@app.route("/health")
+def health():
+    get_db().execute("SELECT 1").fetchone()
+    return jsonify({"status": "ok"})
 
 
 @app.route("/register", methods=["GET", "POST"])
