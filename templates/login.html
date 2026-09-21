@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Sign In — ETHEREAL{% endblock %}
+{% block main %}
+<section class="auth-shell">
+    <div class="auth-card">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1>Return to ETHEREAL.</h1>
+        <form method="post" class="auth-form">
+            <label>Email<input type="email" name="email" autocomplete="email" required></label>
+            <label>Password<input type="password" name="password" autocomplete="current-password" required></label>
+            <button class="button primary full" type="submit">Enter ETHEREAL</button>
+        </form>
+        <p class="auth-switch">New here? <a href="{{ url_for('register') }}">Create an account</a></p>
+    </div>
+</section>
+{% endblock %}
