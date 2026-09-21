@@ -1,7 +1,7 @@
 # ETHEREAL BUBBLES 🫧
 
 #### Video Demo: TODO
-#### Live Application: TODO — will be `https://universe.etherealbubble.com`
+#### Live Application: https://ethereal-production-production.up.railway.app\n#### Custom Domain: https://universe.etherealbubble.com
 
 ## Description
 
@@ -101,4 +101,4 @@ flask --app app run
 
 Before CS50 submission, the Video Demo URL above will be replaced with the final video link.
 
-Deployment is configured through Railway from the `main` branch.
+Deployment is configured through Railway from the `main` branch. Production uses Gunicorn, a Railway health check, and a persistent volume mounted at `/data` for SQLite.
