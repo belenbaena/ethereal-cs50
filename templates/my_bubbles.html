@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}My Bubbles — ETHEREAL{% endblock %}
+{% block main %}
+<section class="library-head">
+    <p class="eyebrow">YOUR UNIVERSE</p>
+    <h1>My Bubbles</h1>
+    <p>Choose the ETHEREAL worlds you want to keep close.</p>
+</section>
+
+<section class="bubble-grid">
+    {% for bubble in bubbles %}
+        <article class="bubble-card bubble-card-{{ bubble.slug }}" data-bubble-id="{{ bubble.id }}">
+            <div class="mini-bubble"></div>
+            <div>
+                <h2>{{ bubble.name }}</h2>
+                <p>{{ bubble.description }}</p>
+            </div>
+            <button class="save-button {% if bubble.id in saved_ids %}saved{% endif %}" data-save-button>
+                <span class="heart">{% if bubble.id in saved_ids %}♥{% else %}♡{% endif %}</span>
+                <span class="save-label">{% if bubble.id in saved_ids %}Saved{% else %}Save bubble{% endif %}</span>
+            </button>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}
