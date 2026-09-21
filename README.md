@@ -100,3 +100,5 @@ flask --app app run
 ```
 
 Before CS50 submission, the Video Demo URL above will be replaced with the final video link.
+
+Deployment is configured through Railway from the `main` branch.
