@@ -1,4 +1,4 @@
-# ETHEREAL Universe 🫧
+# ETHEREAL BUBBLES 🫧
 
 #### Video Demo: TODO
 #### Live Application: TODO — will be `https://universe.etherealbubble.com`
