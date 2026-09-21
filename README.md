@@ -1,8 +1,7 @@
 # ETHEREAL BUBBLES 🫧
 
 #### Video Demo: TODO
-#### Live Application: https://ethereal-production-production.up.railway.app\n#### Custom Domain: https://universe.etherealbubble.com
-
+#### Live Application: https://ethereal-production-production.up.railway.app\n
 ## Description
 
 **ETHEREAL Universe** is a web-based application created as my CS50 final project. It extends ETHEREAL, my existing digital education brand, with a small interactive account system while keeping the published public website visually unchanged.
@@ -73,7 +72,7 @@ The GitHub Actions workflow in `.github/workflows/tests.yml` installs the depend
 
 One important design decision was to keep ETHEREAL's existing public site separate from the Flask application. Rebuilding the public site would have duplicated work and risked changing an experience that already existed. Instead, the final architecture treats the public site as the entrance and the Flask project as the interactive account layer.
 
-The existing **Explore the Universe** button will ultimately point to `universe.etherealbubble.com`. The appearance and layout of the public website do not need to change; only the destination of that button changes.
+The existing **Explore the Universe** button on the public ETHEREAL website opens the deployed Railway application in a new tab. The appearance and layout of the public website remain unchanged; only the destination of that button changes.
 
 I also chose SQLite rather than a more complex database server because the data model is intentionally small and relational, and SQLite directly demonstrates the SQL concepts used in CS50. In production, the database file is placed on persistent storage so account and My Bubbles data survive redeployments.
 
