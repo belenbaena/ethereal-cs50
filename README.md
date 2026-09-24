@@ -1,10 +1,10 @@
 # ETHEREAL BUBBLES 🫧
 
-#### Video Demo: TODO
-#### Live Application: https://ethereal-production-production.up.railway.app\n
+#### Video Demo: https://youtu.be/Je8ntPPZ62Q
+#### Live Application: https://ethereal-production-production.up.railway.app/
 ## Description
 
-**ETHEREAL Universe** is a web-based application created as my CS50 final project. It extends ETHEREAL, my existing digital education brand, with a small interactive account system while keeping the published public website visually unchanged.
+**ETHEREAL BUBBLES** is a web-based application created as my CS50 final project. It extends ETHEREAL, my existing digital education brand, with a small interactive account system while keeping the published public website visually unchanged.
 
 The public ETHEREAL website is designed as an editorial entrance to six knowledge worlds: Nutrition, Era, Mind, Finance, Living, and Career. The purpose of this final project is not to rebuild that website. Instead, this application gives visitors a personal space inside ETHEREAL. A user can create an account, sign in, remain authenticated between requests, choose favorite ETHEREAL worlds, save them to a collection called **My Bubbles**, remove bubbles later, and log out.
 
@@ -45,7 +45,7 @@ The schema also inserts the six default ETHEREAL worlds with `INSERT OR IGNORE`,
 The Jinja templates contain the HTML rendered by Flask.
 
 - `layout.html` contains the shared page structure and navigation.
-- `index.html` introduces the ETHEREAL Universe application.
+- `index.html` introduces the ETHEREAL BUBBLES application.
 - `register.html` provides the account-creation form.
 - `login.html` provides the sign-in form.
 - `my_bubbles.html` displays the six worlds and the current user's saved state.
@@ -97,7 +97,5 @@ Run the development server:
 ```bash
 flask --app app run
 ```
-
-Before CS50 submission, the Video Demo URL above will be replaced with the final video link.
 
 Deployment is configured through Railway from the `main` branch. Production uses Gunicorn, a Railway health check, and a persistent volume mounted at `/data` for SQLite.
